@@ -1,0 +1,34 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include<stdio.h>
+#include<stdlib.h>
+//汉诺塔问题//如果n==1，那么直接把盘子从A移到C，
+//如果n>2,那么先把n-1个盘子移到b，然后在把a的最后一个盘子移到c，最后把b的n-1的盘子移到c
+//移动move
+//青蛙跳台问题
+int i = 0;
+int move( int n, char a,char c)
+{
+	printf("第%d步：把第%d个盘子%c--->%c\n",i++,n,a,c);
+}
+int Haoi(int n, char a ,char b ,char c)
+{
+	if (n == 1)
+		move(n,a,c);
+	else
+	{
+		Haoi(n - 1, a,c,b);
+		move(n, a, c);
+		Haoi(n - 1, b, a, c);
+		
+	}
+}
+int main()
+{
+
+	int num;
+	scanf("%d",&num);
+	Haoi( num,'A', 'B', 'C');
+	system("pause");
+	return 0;
+
+}
